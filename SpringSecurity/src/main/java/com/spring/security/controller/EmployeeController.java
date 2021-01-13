@@ -2,6 +2,8 @@ package com.spring.security.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -46,7 +48,7 @@ public class EmployeeController extends BaseController{
 	}
 	
 	@PostMapping(value = "/users/user", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> saveUser( @RequestBody AppUserDto userDto)
+	public ResponseEntity<Object> saveUser( @Valid @RequestBody AppUserDto userDto)
 	{
 		Object appUser = userDetailsService.saveAppUser(userDto);
 		System.out.println("Saving user " + CommonUtil.toJson(userDto));

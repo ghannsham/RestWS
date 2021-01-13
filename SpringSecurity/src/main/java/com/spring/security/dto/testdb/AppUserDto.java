@@ -2,16 +2,27 @@ package com.spring.security.dto.testdb;
 
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import com.spring.security.dto.AppDto;
 
 public class AppUserDto extends AppDto{
 
     private int userId;
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @NotBlank
     private String password;
+    @NotBlank
     private String username;
+    @NotEmpty
     private List<UserPermissionGroupDto> userPermissionGroups;
 
 	public AppUserDto() 
